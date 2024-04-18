@@ -41,6 +41,7 @@ if($reg_type == 'reg'){
     # проверки закончены.
     if(!count($array_messages)){
         # регистрацию продолжать можно
+        $result = $mysqli->query("INSERT INTO members (username,password,name,surename) VALUES('$reg_username','$reg_password','$reg_your_name','$reg_surename')");
     }
 }
 ?>
