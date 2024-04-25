@@ -64,6 +64,11 @@ if($reg_type == 'reg'){
         <main>
             <div class="py-5 text-center">
                 <h2>Регистрация</h2>
+                <?php
+    foreach($array_messages as $value){
+        echo($value . '<br>');
+    }
+    ?>
             </div>
             <div class="row g-5">
       <div class="col-md-5 col-lg-4 order-md-last">
@@ -76,8 +81,9 @@ if($reg_type == 'reg'){
       </div>
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Заполните ваши данные</h4>
-        <form class="needs-validation" novalidate>
-          <div class="row g-3">
+        <form class="needs-validation" action="/reg.php" method="post" novalidate>
+        <input type="hidden" name="type" value="reg">
+        <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Имя</label>
               <input type="text" class="form-control" id="firstName" placeholder="Имя" value="" name="your_name" required>
@@ -88,7 +94,7 @@ if($reg_type == 'reg'){
 
             <div class="col-sm-6">
               <label for="lastName" class="form-label">Фамилия</label>
-              <input type="text" class="form-control" id="lastName" placeholder="Фамилия" value="" required>
+              <input type="text" class="form-control" id="lastName" placeholder="Фамилия" value="" name="surename" required>
               <div class="invalid-feedback">
                 Valid last name is required.
               </div>
@@ -98,7 +104,7 @@ if($reg_type == 'reg'){
               <label for="username" class="form-label">Логин</label>
               <div class="input-group has-validation">
                 <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="username" placeholder="Логин" required>
+                <input type="text" class="form-control" id="username" placeholder="Логин" name="username" required>
               <div class="invalid-feedback">
                   Your username is required.
                 </div>
@@ -106,7 +112,7 @@ if($reg_type == 'reg'){
             </div>
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Пароль</label>
-              <input type="password" class="form-control" id="firstName" placeholder="Пароль" value="" required>
+              <input type="password" class="form-control" id="firstName" placeholder="Пароль" value="" name="password" required>
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
@@ -114,7 +120,7 @@ if($reg_type == 'reg'){
 
             <div class="col-sm-6">
               <label for="lastName" class="form-label">Подтвердите пароль</label>
-              <input type="password" class="form-control" id="lastName" placeholder="Подтвердите пароль" value="" required>
+              <input type="password" class="form-control" id="lastName" placeholder="Подтвердите пароль" value="" name="prepeat" required>
               <div class="invalid-feedback">
                 Valid last name is required.
               </div>
